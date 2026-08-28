@@ -48,7 +48,6 @@ jobs:
       run: find ./ -name '*.exe'
 
     - name: Upload built binary
-      working-directory: ${{env.GITHUB_WORKSPACE}}
       uses: actions/upload-artifact@v4
       with:
         name: compiled-binary
