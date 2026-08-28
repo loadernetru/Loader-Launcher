@@ -1,0 +1,29 @@
+name: Build MSVC Binary
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Initialize MSVC Developer Command Prompt
+      uses: ilammy/msvc-dev-cmd@v1.13.0
+
+    - name: Compile C++ source file
+      shell: cmd
+      run: |
+        cl /EHsc main.cpp /Fe:my_program.exe
+
+    - name: Upload built binary
+      uses: actions/upload-artifact@v4
+      with:
+        name: compiled-binary
+        path: loader-launcher.exe
