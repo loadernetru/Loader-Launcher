@@ -45,7 +45,7 @@ jobs:
 
     - name: search artifacts
       working-directory: ${{env.GITHUB_WORKSPACE}}
-      run: ls -la D:\a\Loader-Launcher\Loader-Launcher\x64\Release\
+      run: dir D:\a\Loader-Launcher\Loader-Launcher\x64\Release\
 
     - name: Upload built binary
       uses: actions/upload-artifact@v4
